@@ -1,30 +1,25 @@
 'use client';
 
-import React, { useState, useEffect, use } from 'react';
-import { Menu, X, Mountain, Search, User, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
 import { ModeToggle } from './mode-toggle';
+import { useTranslations } from 'next-intl';
+import { Link } from "@/i18n/routing";
 
 
 export default function Header() {
+  const t = useTranslations('Navigation');
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+
 
   const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Music', href: '/music' },
-    { name: 'Informatics', href: '/informatics' },
+    { name: t('home'), href: '/' },
+    { name: t('about'), href: '/about' },
+    { name: t('music'), href: '/music' },
+    { name: t('informatics'), href: '/informatics' },
   ];
-
-  // Handle scroll effect for border/shadow
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <header 
@@ -40,11 +35,11 @@ export default function Header() {
             {/* MIDDLE: Desktop Navigation (Hidden on Mobile) */}
             <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-                <a key={link.name} href={link.href}     
+                <Link key={link.name} href={link.href}     
                 className="text-sm font-medium hover:text-brand transition-colors"
                 >
                 {link.name}
-                </a>
+                </Link>
             ))}
             </nav>
 
@@ -81,14 +76,14 @@ export default function Header() {
         <div className="px-4 py-6 md:hidden shadow-lg animate-in slide-in-from-top-5 duration-200">
         <nav className="flex flex-col space-y-4">
             {navLinks.map((link) => (
-            <a 
+            <Link 
                 key={link.name} 
                 href={link.href} 
                 className="flex items-center justify-between text-base font-medium hover:text-brand rounded-md p-2 -mx-2 transition-colors"
             >
                 {link.name}
                 <ArrowRight size={16} className="" />
-            </a>
+            </Link>
             ))}
             
             <div className="pt-4 mt-4 border-t border-brand flex flex-col gap-3">

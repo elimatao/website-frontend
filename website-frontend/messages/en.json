@@ -1,0 +1,11 @@
+{
+    "Home": {
+        "subtitle": "Computer Scientist & Musician"
+    },
+    "Navigation": {
+        "home": "Home",
+        "about": "About Me",
+        "music": "Music",
+        "informatics": "Informatics"
+    }
+}

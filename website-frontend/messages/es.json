@@ -1,0 +1,11 @@
+{
+    "Home": {
+        "subtitle": "Informático y Músico"
+    },
+    "Navigation": {
+        "home": "Inicio",
+        "about": "Sobre mí",
+        "music": "Música",
+        "informatics": "Informática"
+    }
+}
