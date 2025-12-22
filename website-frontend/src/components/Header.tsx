@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
 import { ModeToggle } from './mode-toggle';
+import { LanguageSwitcher } from './LanguageSwitcher';
 import { useTranslations } from 'next-intl';
 import { Link } from "@/i18n/routing";
 
@@ -48,6 +49,7 @@ export default function Header() {
             
             {/* 1. Always Visible Elements */}
             <ModeToggle />
+            <LanguageSwitcher />
 
             {/* 2. Desktop Only Elements (User Profile, CTA) */}
             <div className="hidden md:flex items-center gap-2">
