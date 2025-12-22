@@ -7,5 +7,8 @@
         "about": "About Me",
         "music": "Music",
         "informatics": "Informatics"
+    },
+    "Article": {
+        "last_updated": "Last updated on {date}"
     }
 }

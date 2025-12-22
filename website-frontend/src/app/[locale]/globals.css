@@ -121,6 +121,9 @@
 }
 
 @layer base {
+  h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
+    scroll-margin-top: 4rem; /* Adjust this value to match your navbar height */
+  }
   * {
     @apply border-border outline-ring/50;
   }

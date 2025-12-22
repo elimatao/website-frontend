@@ -18,7 +18,7 @@ export default function Header() {
     { name: t('home'), href: '/' },
     { name: t('about'), href: '/about' },
     { name: t('music'), href: '/music' },
-    { name: t('informatics'), href: '/informatics' },
+    { name: t('informatics'), href: '/cs' },
   ];
 
   return (

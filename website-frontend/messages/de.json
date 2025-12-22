@@ -1,0 +1,14 @@
+{
+    "Home": {
+        "subtitle": "Informatiker und Musiker"
+    },
+    "Navigation": {
+        "home": "Home",
+        "about": "Über mich",
+        "music": "Musik",
+        "informatics": "Informatik"
+    },
+    "Article": {
+        "last_updated": "Zuletzt aktualisiert am {date}"
+    }
+}
