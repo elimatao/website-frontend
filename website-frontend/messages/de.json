@@ -9,6 +9,10 @@
         "informatics": "Informatik"
     },
     "Article": {
-        "last_updated": "Zuletzt aktualisiert am {date}"
+        "last_updated": "Zuletzt aktualisiert am {date}",
+        "toc_title": "Auf dieser Seite"
+    },
+    "CsListPage": {
+        "title": "Einige meiner bisherigen Arbeiten"
     }
 }
