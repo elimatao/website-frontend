@@ -1,0 +1,117 @@
+- id: 1
+  title_es: "Estudio op.10 n.° 12 \"Revolucionario\""
+  title_de: "Etüde Op. 12 Nr. 12 \"Revolutionsetüde\""
+  title_en: "Etude Op. 10 No. 12 \"Revolutionary\""
+  description_es: |
+    Chopin compuso este estudio alrededor de 1831, cuando ocurrió el levantamiento de Noviembre en Polonia contra Rusia. Como no pudo participar, dejó su furor en esa pieza.
+  description_de: |
+    Chopin komponierte diese Etüde in 1831, als in Polen der Novemberaufstand gegen die Russen geschah. Da er nicht teilnehmen konnte, ließ er seine Wut in diesem Stück aus.
+  description_en: |
+    Chopin composed this etude in 1831 in when the revolt of November against the russian ocurred in Poland. Since he couldn't because of health reasons, he let all his fury out in this piece.
+  composer_id: 2
+- id: 2
+  title_es: "Córdoba, Op. 232 N.° 4"
+  title_de: "Córdoba, Op. 232 Nr. 4"
+  title_en: "Córdoba, Op. 232 No. 4"
+  description_es: |
+    Córdoba forma parte de los Cantos de España, una suite de cinco piezas compuesta en 1892. Aunque la versión original es para piano, las adaptaciones a la guitarra son bastante más tocadas.
+  description_de: |
+    Córdoba ist Teil der Suite Cantos de España, die aus fünf Stücken besteht und 1892 komponiert wurde. Obwohl die Originalversion für Klavier war, werden heute die Gitarrenadaptationen häufiger gespielt.
+  description_en: |
+    Córdoba is one of five pieces that form the Cantos de España suite. It was composed 1892 for piano. However, the arangements for guitar ar played more frequently.
+  composer_id: 3
+- id: 3
+  title_es: "Nocturno"
+  title_de: "Nocturne"
+  title_en: "Nocturne"
+  description_es: |
+    Este es el único nocturno que Debussy compuso para piano solo. Data de 1892 y la tonalidad es re bemol menor.
+  description_de: |
+    Dies ist das einzige Nocturne das Debussy für Soloklavier komponiert hat.
+    Es stammt von 1892 und hat die Tonart Des moll.
+  description_en: |
+    This is the only nocturne that Debussy composed for piano. It was written 1892 in D flat minor.
+  composer_id: 1
+- id: 4
+  title_es: "Impromptu op. 29 n.° 1"
+  title_de: "Impromptu Op. 29 Nr. 1"
+  title_en: "Impromptu Op. 29 No. 1"
+  description_es: |
+    Este impromptu fue compuesto en 1837 en la bemol mayor. Lo toqué en el concierto de galardonados del concurso del IBF Canarias, donde quedé segundo.
+  description_de: |
+    Dieses Impromptu wurde 1837 in As dur komponiert. Ich habe es im Preisträgerkonzert des IBF-Wettbewerbs gespielt (ich hatte den 2. Preis).
+  description_en: |
+    This impromptu was composed 1837 in A flat major. I played in the priceholder concert of the Competition of the IBF Canarias.
+  composer_id: 2
+- id: 5
+  title_es: "Sonata para piano No. 14 \"Claro de luna\", Op. 27 No. 2"
+  title_de: "Klaviersonate Nr. 14 \"Mondschein\", Op. 27 Nr. 2"
+  title_en: "Piano Sonata No. 14 \"Moonlight\", Op. 27 No. 2"
+  description_es: null
+  description_de: null
+  description_en: ""
+  composer_id: 4
+- id: 6
+  title_es: "Variations sérieuses op.54"
+  title_de: "Variations sérieuses op.54"
+  title_en: "Variations sérieuses op.54"
+  description_es: null
+  description_de: ""
+  description_en: ""
+  composer_id: 5
+- id: 7
+  title_es: "Balada n.° 1 en sol menor, op. 23"
+  title_de: "Ballade Nr. 1 g-Moll op. 23"
+  title_en: "Ballade No. 1 in G minor, Op. 23"
+  description_es: ""
+  description_de: null
+  description_en: ""
+  composer_id: 2
+- id: 8
+  title_es: "Suite bergamasca"
+  title_de: "Suite bergamasque"
+  title_en: "Suite bergamasque"
+  description_es: "1. Preludio <br> 3. Claro de luna"
+  description_de: "1. Prélude (Vorspiel, Auftakt) <br> 3. Clair de Lune (Mondglanz, Mondschein)"
+  description_en: "1. Prélude <br> 3. Clair de lune"
+  composer_id: 1
+- id: 9
+  title_es: "Estudio op. 8 n.° 12"
+  title_de: "Etüde Op. 8 Nr. 12"
+  title_en: "Etude Op. 8 No. 12"
+  description_es: ""
+  description_de: null
+  description_en: null
+  composer_id: 6
+- id: 10
+  title_es: "Sonata para piano Op. 13 \"Patética\""
+  title_de: "Sonate Pathétique Op. 13"
+  title_en: "Grande Sonate pathétique Op. 13"
+  description_es: null
+  description_de: null
+  description_en: null
+  composer_id: 4
+- id: 11
+  title_es: "Chacona en re menor BWV 1004 (Bach-Busoni)"
+  title_de: "Chaconne d-Moll BWV 1004 (Bach-Busoni)"
+  title_en: "Bach-Busoni, Chaconne in D minor BWV 1004"
+  description_es: null
+  description_de: null
+  description_en: null
+  composer_id: 7
+- id: 12
+  title_es: "Tres Estudios de Concierto S.144 n.º 2 \"La Leggierezza\""
+  title_de: "Trois Études de Concert S.144 Nr. 2 \"La Leggierezza\""
+  title_en: "Trois Études de Concert S.144 No. 2 \"La Leggierezza\""
+  description_es: null
+  description_de: null
+  description_en: null
+  composer_id: 8
+- id: 13
+  title_es: "Preludio en sol menor, Op. 23 n.º 5"
+  title_de: "Prélude g-Moll, Op. 23 Nr. 5"
+  title_en: "Prelude in G Minor, Op. 23 No. 5"
+  description_es: null
+  description_de: null
+  description_en: null
+  composer_id: 9

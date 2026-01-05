@@ -47,27 +47,27 @@ export default function Header() {
             {/* RIGHT: Actions & Toggles */}
             <div className="flex items-center gap-2">
             
-            {/* 1. Always Visible Elements */}
-            <ModeToggle />
-            <LanguageSwitcher />
+                {/* 1. Always Visible Elements */}
+                <ModeToggle />
+                <LanguageSwitcher />
 
-            {/* 2. Desktop Only Elements (User Profile, CTA) */}
-            <div className="hidden md:flex items-center gap-2">
-                <Button size="sm" className="hidden lg:flex">
-                    Contact
+                {/* 2. Desktop Only Elements (User Profile, CTA) */}
+                <div className="hidden md:flex items-center gap-2">
+                    <Button size="sm" className="hidden lg:flex">
+                        Contact
+                    </Button>
+                </div>
+
+                {/* 3. Mobile Menu Toggle (Hidden on Desktop) */}
+                <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    className="md:hidden"
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    aria-label="Toggle menu"
+                >
+                    {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
                 </Button>
-            </div>
-
-            {/* 3. Mobile Menu Toggle (Hidden on Desktop) */}
-            <Button 
-                variant="ghost" 
-                size="icon" 
-                className="md:hidden"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                aria-label="Toggle menu"
-            >
-                {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </Button>
             </div>
         </div>
 

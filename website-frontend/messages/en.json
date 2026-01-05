@@ -12,6 +12,18 @@
         "last_updated": "Last updated on {date}",
         "toc_title": "On this page"
     },
+    "Music": {
+        "title": "Browse through my recordings!",
+        "recording_date": "{date, date, medium}",
+        "filtered_recordings_count": "{count, plural, one {# recording found} other {# recordings found}}",
+        "filter_section_title": "Filter Recordings",
+        "reset_filters": "Reset Filters",
+        "composers": "Composers",
+        "all": "All",
+        "recording_year": "Recording Year",
+        "from": "From",
+        "to": "To"
+    },
     "CsListPage": {
         "title": "Some of my Previous Work"
     }

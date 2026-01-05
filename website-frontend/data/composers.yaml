@@ -1,0 +1,27 @@
+- id: 1
+  name: Claude
+  surname: Debussy
+- id: 2
+  name: "Frédéric"
+  surname: Chopin
+- id: 3
+  name: Isaac
+  surname: "Albéniz"
+- id: 4
+  name: "Ludwig van"
+  surname: Beethoven
+- id: 5
+  name: Felix
+  surname: Mendelssohn
+- id: 6
+  name: Alexander
+  surname: Skrjabin
+- id: 7
+  name: Feruccio
+  surname: Busoni
+- id: 8
+  name: Franz
+  surname: Liszt
+- id: 9
+  name: Sergei
+  surname: Rachmaninoff

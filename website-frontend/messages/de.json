@@ -12,6 +12,18 @@
         "last_updated": "Zuletzt aktualisiert am {date}",
         "toc_title": "Auf dieser Seite"
     },
+    "Music": {
+        "title": "Entdecke meine Aufnahmen!",
+        "recording_date": "{date, date, medium}",
+        "filtered_recordings_count": "{count, plural, one {# Aufnahme gefunden} other {# Aufnahmen gefunden}}",
+        "filter_section_title": "Aufnahmen filtern",
+        "reset_filters": "Filter zurücksetzen",
+        "composers": "Komponisten",
+        "all": "Alle",
+        "recording_year": "Aufnahmejahr",
+        "from": "Von",
+        "to": "Bis"
+    },
     "CsListPage": {
         "title": "Einige meiner bisherigen Arbeiten"
     }

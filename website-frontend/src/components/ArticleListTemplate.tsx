@@ -6,7 +6,6 @@ import { Link } from "@/i18n/routing";
 export default async function ArticleListTemplate({ route, locale }: { route: string; locale: string }) {
     const articles = getArticleMetadataList(locale, route);
     articles.sort((a, b) => b.date.getTime() - a.date.getTime());
-    console.log(articles);
     return (
         <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
             {articles.map((article) => (
