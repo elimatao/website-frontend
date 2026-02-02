@@ -6,6 +6,7 @@ import { MusicSortSwitcher } from "./MusicSortSwitcher";
 import { AggregateRecording } from "@/lib/music-types";
 import { initials } from "@/lib/utils";
 import MusicViewSwitcher from "./MusicViewSwitcher";
+import YouTubeDialog from "./YouTubeDialog";
 
 export type MusicSortMode = 'date_desc' | 'date_asc' | 'title_asc' | 'title_desc' | 'composer_asc' | 'composer_desc';
 export type MusicViewMode = 'grid' | 'list';
@@ -71,12 +72,7 @@ export default function RecordingGrid({ recordings }: {recordings: AggregateReco
             { viewMode === 'list' && (
                 <div className="border rounded-xl p-2 space-y-6">
                     {sortedRecordings.map((recording) => (
-                        <div key={recording.id} className="flex justify-between items-center">
-                            <span className="text-lg font-medium">{recording.composer_name} {recording.composer_surname}: {recording.piece_title}</span>
-                            <span className="ml-4 text-right text-sm text-muted-foreground">
-                                {t('recording_date', { date: recording.recdate })}
-                            </span>
-                        </div>
+                        <YouTubeDialog key={recording.id} recording={recording} />
                     ))}
                 </div>
             )}

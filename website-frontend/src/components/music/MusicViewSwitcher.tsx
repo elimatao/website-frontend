@@ -14,7 +14,7 @@ export default function MusicViewSwitcher({ viewMode, setViewMode }: { viewMode:
     const nextViewMode = viewModes[(currentViewModeIndex + 1) % viewModes.length];
 
     return (
-        <Button variant="ghost" size="icon" className="w-fit ml-4 p-2" onClick={() => setViewMode(nextViewMode.mode as MusicViewMode)}>
+        <Button variant="ghost" size="icon" className="w-fit ml-4 p-2 hover:cursor-pointer" onClick={() => setViewMode(nextViewMode.mode as MusicViewMode)}>
             {currentViewMode.icon} {currentViewMode.label}
         </Button>
     )
