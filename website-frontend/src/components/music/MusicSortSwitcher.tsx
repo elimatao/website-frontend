@@ -12,18 +12,19 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { MusicSortMode } from './RecordingGrid';
 import { CalendarArrowUp, CalendarArrowDown, ArrowDownAZ, ArrowDownZA } from 'lucide-react';
-
-const sortModes = [
-  { mode: 'date_desc', label: 'Date Descending', icon: <CalendarArrowUp />},
-  { mode: 'date_asc', label: 'Date Ascending', icon: <CalendarArrowDown />},
-  { mode: 'title_asc', label: 'Title A-Z', icon: <ArrowDownAZ />},
-  { mode: 'title_desc', label: 'Title Z-A', icon: <ArrowDownZA />},
-  { mode: 'composer_asc', label: 'Composer A-Z', icon: <ArrowDownAZ />},
-  { mode: 'composer_desc', label: 'Composer Z-A', icon: <ArrowDownZA />},
-];
-
+import { useTranslations } from 'next-intl';
 
 export function MusicSortSwitcher({ sortMode, setSortMode }: { sortMode: MusicSortMode; setSortMode: React.Dispatch<React.SetStateAction<MusicSortMode>> }) {
+  const t = useTranslations('Music');
+  const sortModes = [
+    { mode: 'date_desc', label: t('date_desc'), icon: <CalendarArrowUp />},
+    { mode: 'date_asc', label: t('date_asc'), icon: <CalendarArrowDown />},
+    { mode: 'title_asc', label: t('title_asc'), icon: <ArrowDownAZ />},
+    { mode: 'title_desc', label: t('title_desc'), icon: <ArrowDownZA />},
+    { mode: 'composer_asc', label: t('composer_asc'), icon: <ArrowDownAZ />},
+    { mode: 'composer_desc', label: t('composer_desc'), icon: <ArrowDownZA />},
+  ];
+
   const currentSortMode = sortModes.find((s) => s.mode === sortMode);
   return (
     <DropdownMenu>

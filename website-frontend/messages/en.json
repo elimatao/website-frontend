@@ -6,7 +6,11 @@
         "home": "Home",
         "about": "About Me",
         "music": "Music",
-        "informatics": "Informatics"
+        "informatics": "Informatics",
+        "contact": "Contact",
+        "contact_me": "Contact Me!",
+        "copy_email": "Copy Email",
+        "email_copied": "Email Copied"
     },
     "Footer": {
         "legal": "Legal Notice",
@@ -28,7 +32,15 @@
         "all": "All",
         "recording_year": "Recording Year",
         "from": "From",
-        "to": "To"
+        "to": "To",
+        "grid_view": "Grid View",
+        "list_view": "List View",
+        "date_desc": "Date (Newest First)",
+        "date_asc": "Date (Oldest First)",
+        "title_asc": "Title (A-Z)",
+        "title_desc": "Title (Z-A)",
+        "composer_asc": "Composer (A-Z)",
+        "composer_desc": "Composer (Z-A)"
     },
     "CsListPage": {
         "title": "Some of my Previous Work"

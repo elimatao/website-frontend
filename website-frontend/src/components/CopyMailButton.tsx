@@ -2,8 +2,10 @@
 import { Mail, Copy, Check, Link } from 'lucide-react'
 import { Button } from './ui/button'
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 export default function EmailButton({encodedEmail}: {encodedEmail: string}) {
+  const t = useTranslations('Navigation')
   const [copied, setCopied] = useState(false)
 
   const handleCopy = () => {
@@ -44,7 +46,7 @@ export default function EmailButton({encodedEmail}: {encodedEmail: string}) {
             className="flex items-center gap-1 hover:cursor-pointer"
         >
             {copied ? <Check className="" /> : <Copy className="" />}
-            {copied ? 'Copied!' : 'Copy email'}
+            {copied ? t('email_copied') : t('copy_email')}
         </Button>
     </div>
   )

@@ -6,7 +6,11 @@
         "home": "Inicio",
         "about": "Sobre mí",
         "music": "Música",
-        "informatics": "Informática"
+        "informatics": "Informática",
+        "contact": "Contacto",
+        "contact_me": "¡Contáctame!",
+        "copy_email": "Copiar Email",
+        "email_copied": "Email copiado"
     },
     "Footer": {
         "legal": "Aviso legal",
@@ -28,7 +32,15 @@
         "all": "Todos",
         "recording_year": "Año de grabación",
         "from": "Desde",
-        "to": "Hasta"
+        "to": "Hasta",
+        "grid_view": "Cuadrícula",
+        "list_view": "Lista",
+        "date_desc": "Fecha (Más reciente primero)",
+        "date_asc": "Fecha (Más antigua primero)",
+        "title_asc": "Título (A-Z)",
+        "title_desc": "Título (Z-A)",
+        "composer_asc": "Compositor (A-Z)",
+        "composer_desc": "Compositor (Z-A)"
     },
     "CsListPage": {
         "title": "Algunos de mis trabajos anteriores"
