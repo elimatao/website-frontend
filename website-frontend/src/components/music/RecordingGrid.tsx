@@ -56,7 +56,7 @@ export default function RecordingGrid({ recordings }: {recordings: AggregateReco
                     {sortedRecordings.map((recording) => (
                         <Card key={recording.id} className="overflow-hidden">
                             <CardHeader className="p-0">
-                                <YouTubeEmbed videoid={recording.youtube_id} params={recording.youtube_params}/>
+                                <YouTubeEmbed videoid={recording.youtube_id} params={recording.youtube_params} js-api/>
                             </CardHeader>
                             <CardContent>
                                 <CardTitle>{initials(recording.composer_name)} {recording.composer_surname}: {recording.piece_title}</CardTitle>

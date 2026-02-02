@@ -8,6 +8,12 @@
         "music": "Música",
         "informatics": "Informática"
     },
+    "Footer": {
+        "legal": "Aviso legal",
+        "privacy": "Política de privacidad",
+        "changelog": "Registro de cambios",
+        "about_page": "Sobre esta página"
+    },
     "Article": {
         "last_updated": "Última actualización el {date}",
         "toc_title": "En esta página"

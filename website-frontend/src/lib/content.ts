@@ -6,7 +6,7 @@ import matter from 'gray-matter';
 export interface ArticleMetadata {
   title: string;
   date: Date;
-  lastmod?: Date;
+  lastmod: Date;
   description?: string;
   draft?: boolean;
   slug: string;

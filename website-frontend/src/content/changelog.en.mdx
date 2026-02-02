@@ -18,8 +18,6 @@ So what I did is to turn the recordings into static files, which makes them less
 
 Furthermore I had to remove the highscore table in the LEDs game as it also requires the backend. The game is still playable. It has been moved to the Informatics section as I don't think I will be adding enough games in the future to justify a dedicated games section. Besides, this website is rather supposed to be about me and what I do than a games portal.
 
-
-
 ## v2.0
 **2022-06-28**
 #### Problems so far
@@ -34,3 +32,15 @@ Altough the site seemed rather complete, there were a few under-the-hood issues 
 Most of these issues were adressed by merging the frontend code into a single [Hugo](https://gohugo.io) project. Hugo is a powerful Static Site Generator. The pages are now compiled once and served quickly via [Netlify](https://www.netlify.com). The content is comfortably edited in the Markdown language with optional HTML extensions and the translation process is more straight forward. The code is available on my [Github repository](https://github.com/elimatao/website-frontend).
 
 The dynamic content is requested via JavaScript and served by the flask app which has been radically reduced to a simple <abbr title="Application Programming Interface">API</abbr>. The delay due to the on-demand launch of the server is still present, but only noticeable in the music section, where it takes a bit longer to load the available composers.
+
+## v1.0
+The initial version of this web site consisted of:
+- An application written in [python 3](https://www.python.org/) with the libraries [Flask, Jinja y Werkzeug](https://palletsprojects.com/)
+- A database with tables for users, videos and the results of the games
+- Multiple HTML files that describe the structure of every page
+- CSS documents, made to the define the style of every HTML element (I used [Bootstrap](https://getbootstrap.com/) in many cases)
+- JavaScript files that add some interactivity to the pages
+
+The core of this site is the Flask-app, which is cloud-hosted by [Heroku](https://www.heroku.com/). When a user makes a request to the app, it sends the required HTML, CSS and JS files. Some contents however are dependent of a database, since they change frequently and it's the only way to store them.
+
+Thanks to th Jinja library, that data can be dinamically integrated into the HTML files when sent to the user. In adition to that, the <abbr title="Asynchronous JavaScript And XML">AJAX</abbr> tecnology allows the exchange of information between the server and the browser of the user without need to reload the page, which can be seen when selecting a composer in the music section.

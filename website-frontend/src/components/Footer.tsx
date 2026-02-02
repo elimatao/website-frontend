@@ -1,12 +1,17 @@
-import {Button} from "@/components/ui/button"
-import Link from "next/link";
+import {getTranslations} from "next-intl/server";
+import { Link } from "@/i18n/routing";
 
-export default function Footer() {
+
+
+export default async function Footer() {
+    const t = await getTranslations('Footer');
+
     return (
-        <footer className="text-center p-4">
-            <Button variant={"default"} className="text-sm font-mono mt-1.5">This is a button</Button>
-            <Button variant={"link"} className="test-sm">This is a Link Button</Button>
-            <Link href={"/"}>asdf</Link>
+        <footer className="text-center p-4 grid grid-cols-2 md:grid-cols-4 gap-2 mt-auto border-t">
+            <Link href="/cs/about_page">{t("about_page")}</Link>
+            <Link locale="en" href="/changelog">{t("changelog")}</Link>
+            <Link href="/legal" locale="es">{t("legal")}</Link>
+            <Link href="/privacy" locale="es">{t("privacy")}</Link>
         </footer>
     );
 }

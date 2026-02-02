@@ -56,9 +56,10 @@ export default async function RootLayout({
         >
           <NextIntlClientProvider messages={clientMessages}>
             <Header />
-            <div className="min-h-screen pt-16">{children}</div>
-            <hr/>
-            <Footer />
+            <div className="flex flex-col min-h-screen pt-16 max-w-7xl mx-auto">
+              {children}
+              <Footer />
+            </div>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
