@@ -1,4 +1,3 @@
-import { INITIAL_FILTERS } from "./RecordingDisplayer";
 import { useTranslations } from "next-intl";
 import { FilterState } from "./RecordingDisplayer";
 import { useTransition, useState } from "react";
@@ -7,7 +6,8 @@ import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 import YearInput from "./YearRangeInput";
 
-export default function RecordingDateFilterer({ activeFilters, onFilterChange }: {
+export default function RecordingDateFilterer({ initialFilters, activeFilters, onFilterChange }: {
+    initialFilters: FilterState;
     activeFilters: FilterState;
     onFilterChange: (filters: FilterState) => void;
 }) {
@@ -41,10 +41,10 @@ export default function RecordingDateFilterer({ activeFilters, onFilterChange }:
             {/* The Visual Slider */}
             <div className="px-2 pt-2">
                 <Slider
-                    defaultValue={[INITIAL_FILTERS.yearRange[0], INITIAL_FILTERS.yearRange[1]]}
+                    defaultValue={[initialFilters.yearRange[0], initialFilters.yearRange[1]]}
                     value={[activeFilters.yearRange[0], activeFilters.yearRange[1]]}
-                    min={INITIAL_FILTERS.yearRange[0]}
-                    max={INITIAL_FILTERS.yearRange[1]}
+                    min={initialFilters.yearRange[0]}
+                    max={initialFilters.yearRange[1]}
                     step={1}
                     onValueChange={handleSliderChange}
                     className="py-4"
@@ -55,7 +55,7 @@ export default function RecordingDateFilterer({ activeFilters, onFilterChange }:
                     <span className="text-[10px] uppercase text-muted-foreground font-bold">{t('from')}</span>
                     <YearInput 
                         value={activeFilters.yearRange[0]}
-                        range={INITIAL_FILTERS.yearRange}
+                        range={initialFilters.yearRange}
                         onChange={(val) => handleInputChange(0, val)}
                     />
                 </div>
@@ -64,7 +64,7 @@ export default function RecordingDateFilterer({ activeFilters, onFilterChange }:
                     <span className="text-[10px] uppercase text-muted-foreground font-bold">{t('to')}</span>
                     <YearInput 
                         value={activeFilters.yearRange[1]}
-                        range={INITIAL_FILTERS.yearRange}
+                        range={initialFilters.yearRange}
                         onChange={(val) => handleInputChange(1, val)}
                     />
                 </div>

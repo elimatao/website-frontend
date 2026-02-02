@@ -7,23 +7,25 @@ import { Checkbox } from "@/components/ui/checkbox"; // Assuming shadcn
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { FilterState, INITIAL_FILTERS } from "./RecordingDisplayer";
+import { FilterState } from "./RecordingDisplayer";
 import ComposerFilterer from "./ComposerFilterer";
 import RecordingDateFilterer from "./RecordingDateFilterer";
 
 export default function RecordingFilterer({ 
   composers,
   onFilterChange,
+  defaultFilters,
   activeFilters
 }: { 
   composers: Composer[],
   onFilterChange: (filters: FilterState) => void,
+  defaultFilters: FilterState,
   activeFilters: FilterState
 }) {
     const t = useTranslations('Music');
 
     const clearFilters = () => {
-        onFilterChange(INITIAL_FILTERS);
+        onFilterChange(defaultFilters);
     };
 
     return (
@@ -40,7 +42,7 @@ export default function RecordingFilterer({
             {/* Filter Sections Container - Flexible for future additions */}
             <div className="grid grid-cols-1 gap-6">
                 <ComposerFilterer composers={composers} activeFilters={activeFilters} onFilterChange={onFilterChange} />
-                <RecordingDateFilterer activeFilters={activeFilters} onFilterChange={onFilterChange} />
+                <RecordingDateFilterer initialFilters={defaultFilters} activeFilters={activeFilters} onFilterChange={onFilterChange} />
             </div>
         </div>
     );

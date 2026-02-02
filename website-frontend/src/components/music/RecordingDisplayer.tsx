@@ -9,13 +9,18 @@ export interface FilterState {
   yearRange: [number, number];
 }
 
-export const INITIAL_FILTERS: FilterState = {
-  composers: [],
-  yearRange: [2004, new Date().getFullYear()],
-};
 
 export default function RecordingDisplayer({ recordings, composers }: { recordings: AggregateRecording[], composers: Composer[] }) {
-    const [filters, setFilters] = useState<FilterState>(INITIAL_FILTERS);
+    const recordingYears = recordings.map(r => r.recdate.getFullYear());
+    const newestRecordingYear = Math.max(...recordingYears);
+    const oldestRecordingYear = Math.min(...recordingYears);
+
+    const defaultFilters: FilterState = {
+        composers: [],
+        yearRange: [oldestRecordingYear, newestRecordingYear],
+    }
+    
+    const [filters, setFilters] = useState<FilterState>(defaultFilters);
 
     let filteredRecordings = filters.composers.length === 0
         ? recordings
@@ -30,7 +35,7 @@ export default function RecordingDisplayer({ recordings, composers }: { recordin
 
     return (    
         <div className="flex flex-col md:flex-row md:space-x-4">
-            <RecordingFilterer composers={composers} onFilterChange={setFilters} activeFilters={filters} />
+            <RecordingFilterer composers={composers} onFilterChange={setFilters} defaultFilters={defaultFilters} activeFilters={filters} />
             <RecordingGrid recordings={filteredRecordings}/>
         </div>
     );
