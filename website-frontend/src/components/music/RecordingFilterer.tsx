@@ -29,7 +29,7 @@ export default function RecordingFilterer({
     };
 
     return (
-        <div className="p-2 mb-4 border rounded-xl bg-card text-card-foreground shadow-sm md:basis-1/4 lg:basis-2/7 md:flex-shrink-0">
+        <div className="p-2 mb-4 md:mb-0 border rounded-xl bg-card text-card-foreground shadow-sm md:basis-1/4 lg:basis-2/7 md:flex-shrink-0 md:overflow-y-auto">
             <div className="flex items-center justify-between mb-2">
                 <h3 className="font-semibold text-lg">{t('filter_section_title')}</h3>
                 {activeFilters.composers.length > 0 && (

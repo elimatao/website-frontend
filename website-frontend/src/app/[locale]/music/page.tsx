@@ -11,7 +11,6 @@ export default async function MusicPage({params}: {params: Promise<{locale: stri
 
     return (
         <div className="max-w-7xl mx-auto px-8">
-            <h1 className="text-4xl text-center my-16">{t('title')}</h1>
             <RecordingDisplayer recordings={aggregateRecordings} composers={musicDb.composers} />
         </div>
     );

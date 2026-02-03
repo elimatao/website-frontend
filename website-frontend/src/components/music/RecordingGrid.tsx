@@ -42,8 +42,8 @@ export default function RecordingGrid({ recordings }: {recordings: AggregateReco
     }, [recordings, sortMode]);
 
     return (
-        <div className="md:basis-3/4 lg:basis-5/7 shrink-0">
-            <div className="flex justify-between items-center mb-4 border rounded-lg p-2">
+        <div className="md:basis-3/4 lg:basis-5/7 shrink-0 h-full flex flex-col">
+            <div className="flex justify-between items-center mb-4 border rounded-lg p-2 sticky">
                 <span className="">
                     {t('filtered_recordings_count', { count: sortedRecordings.length })}
                 </span>
@@ -52,6 +52,7 @@ export default function RecordingGrid({ recordings }: {recordings: AggregateReco
                     <MusicSortSwitcher sortMode={sortMode} setSortMode={setSortMode} />
                 </span>
             </div>
+            <div className={(viewMode=== "grid" ? "border-0" : "border-1") + " rounded-xl md:overflow-y-auto "}>
             { viewMode === 'grid' && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {sortedRecordings.map((recording) => (
@@ -70,12 +71,13 @@ export default function RecordingGrid({ recordings }: {recordings: AggregateReco
                 </div>
             )}
             { viewMode === 'list' && (
-                <div className="border rounded-xl p-2 space-y-6">
+                <div className="p-2 space-y-6">
                     {sortedRecordings.map((recording) => (
                         <YouTubeDialog key={recording.id} recording={recording} />
                     ))}
                 </div>
             )}
+            </div>
         </div>
     );
 }

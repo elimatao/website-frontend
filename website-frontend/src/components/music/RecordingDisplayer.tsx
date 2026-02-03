@@ -33,8 +33,8 @@ export default function RecordingDisplayer({ recordings, composers }: { recordin
         return year >= filters.yearRange[0] && year <= filters.yearRange[1];
     });
 
-    return (    
-        <div className="flex flex-col md:flex-row md:space-x-4">
+    return (
+        <div className="flex flex-col md:flex-row md:space-x-4 mb-4 md:h-[calc(100vh-138px)]">
             <RecordingFilterer composers={composers} onFilterChange={setFilters} defaultFilters={defaultFilters} activeFilters={filters} />
             <RecordingGrid recordings={filteredRecordings}/>
         </div>
