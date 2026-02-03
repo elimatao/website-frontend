@@ -25,7 +25,7 @@ export default function EmailButton({encodedEmail}: {encodedEmail: string}) {
   }
 
   return (
-    <div className='flex gap-3'>
+    <div className='flex gap-2'>
         {/* The Mail Icon/Link */}
         <a href="#"
           onMouseEnter={decodeMail}

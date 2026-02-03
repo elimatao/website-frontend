@@ -1,4 +1,5 @@
 import { Dialog, DialogTrigger, DialogHeader, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import ContactLinks from "./ContactLinks";
 import { useTranslations } from "next-intl";
@@ -6,19 +7,16 @@ import { useTranslations } from "next-intl";
 export default function ContactDialog() {
     const t = useTranslations('Navigation');
     return (
-        <Dialog>
-            <DialogTrigger asChild>
+        <Popover>
+            <PopoverTrigger asChild>
                 <Button 
                     size="sm">
                     {t('contact')}
                 </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-lg">
-                <DialogHeader>
-                    <DialogTitle className="text-center">{t('contact_me')}</DialogTitle>
-                </DialogHeader>
+            </PopoverTrigger>
+            <PopoverContent align="end" className="">
                 <ContactLinks />
-            </DialogContent>
-        </Dialog>
+            </PopoverContent>
+        </Popover>
     )
 }
