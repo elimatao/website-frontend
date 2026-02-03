@@ -7,7 +7,7 @@ export default async function Footer() {
     const t = await getTranslations('Footer');
 
     return (
-        <footer className="text-center p-4 grid grid-cols-2 md:grid-cols-4 gap-2 mt-auto border-t">
+        <footer className="text-center p-4 grid grid-cols-2 md:grid-cols-4 gap-2 mt-auto border-t text-sm">
             <Link href="/cs/about_page">{t("about_page")}</Link>
             <Link locale="en" href="/changelog">{t("changelog")}</Link>
             <Link href="/legal" locale="es">{t("legal")}</Link>

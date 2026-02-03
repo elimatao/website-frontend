@@ -8,7 +8,7 @@ import { initials } from "@/lib/utils";
 export default function RecordingCard({recording}: {recording: AggregateRecording}) {
     const t = useTranslations('Music');
     return (
-        <Card key={recording.id} className="overflow-hidden">
+        <Card key={recording.id} className="overflow-hidden hover:shadow-lg transition-shadow hover:cursor-pointer">
             <CardHeader className="p-0">
                 <YouTubeEmbed videoid={recording.youtube_id} params={recording.youtube_params} js-api/>
             </CardHeader>

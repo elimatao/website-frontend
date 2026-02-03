@@ -8,10 +8,12 @@ export interface ArticleMetadata {
   date: Date;
   lastmod: Date;
   description?: string;
+  moddescription?: string;
   draft?: boolean;
   slug: string;
   wordCount: number;
   locale?: string;
+  featured_image?: string;
 }
 
 export function getArticle(route: string, slug: string, locale: string): { metadata: ArticleMetadata; content: string } | undefined {
@@ -68,7 +70,7 @@ export function getArticleMetadataList(locale: string, route: string): ArticleMe
         data.locale = file.match(/\.([a-z]{2})\.mdx$/)?.[1] || locale;
         data.lastmod = data.lastmod ?? data.date;
         return data as ArticleMetadata;
-    });
+    }).filter(article => !article.draft);
     return articles;
 }
 

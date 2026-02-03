@@ -3,7 +3,8 @@
         "subtitle": "Computer Scientist & Musician",
         "welcome_title": "Welcome to my Website!",
         "welcome_description": "Here you can read something about me, watch my recordings or take a look at my software projects.",
-        "news_title": "Newest Content"
+        "news_title": "Newest Content",
+        "new": "New"
     },
     "Navigation": {
         "home": "Home",

@@ -1,25 +1,32 @@
 import { ArticleMetadata } from "@/lib/content";
 import { Card, CardHeader, CardContent, CardFooter } from "./ui/card";
 import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 
 export default function ArticleCard({ articleData, route }: { articleData: ArticleMetadata, route: string }) {
-    console.log("route", route);
-    console.log("locale", articleData.locale);
+    const t = useTranslations('Home');
     return (
-        <Card key={articleData.slug} className="break-inside-avoid p-4 border hover:shadow-lg transition-shadow">
-            <CardHeader>
-                {articleData.title}
-            </CardHeader>
-            <CardContent>
-                {articleData.description}
-                <Link href={`${route}/${articleData.slug}`} locale={articleData.locale} className="text-brand hover:underline mt-2 inline-block">
-                    Read more
-                </Link>
-            </CardContent>
-            <CardFooter>
-                {articleData.lastmod.toDateString()}
-            </CardFooter>
-        </Card>
+        <Link href={`${route}/${articleData.slug}`} locale={articleData.locale} className="block break-inside-avoid h-full">
+            <Card className="border hover:shadow-lg  transition-shadow hover:cursor-pointer h-full">
+                <CardHeader className="p-0 gap-0 border-0 border-b-1 border-accent rounded-t-xl overflow-hidden">
+                    {articleData.featured_image && (
+                        <img src={articleData.featured_image} alt={articleData.title} />
+                    )}
+                </CardHeader>
+                <CardContent className="text-center h-full">
+                    <h2 className="font-bold">{articleData.title}</h2>
+                    <p>
+                        {articleData.description}
+                    </p>
+                    { articleData.moddescription && (
+                        <p className="mt-2"><span className="italic text-brand">{t("new")}: </span>{articleData.moddescription}</p>
+                    )}
+                </CardContent>
+                <CardFooter>
+                    {articleData.lastmod.toDateString()}
+                </CardFooter>
+            </Card>
+        </Link>
     )
 }

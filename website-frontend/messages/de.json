@@ -3,7 +3,8 @@
         "subtitle": "Informatiker und Musiker",
         "welcome_title": "Willkommen auf meiner Webseite!",
         "welcome_description": "Hier kannst du etwas über mich lesen, meine Aufnahmen ansehen oder einen Blick auf meine Softwareprojekte werfen.",
-        "news_title": "Neuester Inhalt"
+        "news_title": "Neuester Inhalt",
+        "new": "Neu"
     },
     "Navigation": {
         "home": "Home",
