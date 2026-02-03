@@ -14,13 +14,14 @@ export default function ArticleCard({ articleData, route }: { articleData: Artic
                         <img src={articleData.featured_image} alt={articleData.title} />
                     )}
                 </CardHeader>
-                <CardContent className="text-center h-full">
+                <CardContent className="text-center h-full flex flex-col justify-around">
                     <h2 className="font-bold">{articleData.title}</h2>
-                    <p>
-                        {articleData.description}
-                    </p>
+                    
+                    { articleData.description && (
+                        <p>{articleData.description}</p>
+                    )}
                     { articleData.moddescription && (
-                        <p className="mt-2"><span className="italic text-brand">{t("new")}: </span>{articleData.moddescription}</p>
+                        <p><span className="italic text-brand">{t("new")}: </span>{articleData.moddescription}</p>
                     )}
                 </CardContent>
                 <CardFooter>
