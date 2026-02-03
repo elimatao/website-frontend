@@ -31,7 +31,7 @@ export default function Header() {
             
             {/* LEFT: Logo */}
             <div className="flex items-center gap-2 cursor-pointer">
-                <span className="text-lg font-bold tracking-tight">Elia Doumerc</span>
+                <Link href="/" className="text-lg font-bold tracking-tight">Elia Doumerc</Link>
             </div>
 
             {/* MIDDLE: Desktop Navigation (Hidden on Mobile) */}

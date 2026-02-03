@@ -7,6 +7,7 @@ import { AggregateRecording } from "@/lib/music-types";
 import { initials } from "@/lib/utils";
 import MusicViewSwitcher from "./MusicViewSwitcher";
 import YouTubeDialog from "./YouTubeDialog";
+import RecordingCard from "./RecordingCard";
 
 export type MusicSortMode = 'date_desc' | 'date_asc' | 'title_asc' | 'title_desc' | 'composer_asc' | 'composer_desc';
 export type MusicViewMode = 'grid' | 'list';
@@ -56,17 +57,7 @@ export default function RecordingGrid({ recordings }: {recordings: AggregateReco
             { viewMode === 'grid' && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {sortedRecordings.map((recording) => (
-                        <Card key={recording.id} className="overflow-hidden">
-                            <CardHeader className="p-0">
-                                <YouTubeEmbed videoid={recording.youtube_id} params={recording.youtube_params} js-api/>
-                            </CardHeader>
-                            <CardContent>
-                                <CardTitle>{initials(recording.composer_name)} {recording.composer_surname}: {recording.piece_title}</CardTitle>
-                            </CardContent>
-                            <CardFooter>
-                                {t('recording_date', { date: recording.recdate })}
-                            </CardFooter>
-                        </Card>
+                        <RecordingCard key={recording.id} recording={recording} />
                     ))}
                 </div>
             )}

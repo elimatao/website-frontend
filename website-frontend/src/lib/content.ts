@@ -31,7 +31,7 @@ export function getArticle(route: string, slug: string, locale: string): { metad
 
 export function getArticleMetadataList(locale: string, route: string): ArticleMetadata[] {
     /**
-     * Searches for all content files and all 
+     * Searches for all content files in the given language and other languages if no localized version exists.
      */
     const dirPath = path.join(process.cwd(), `src/content/${route}`);
     if (!fs.existsSync(dirPath)) {
@@ -66,6 +66,7 @@ export function getArticleMetadataList(locale: string, route: string): ArticleMe
         const { data, content } = matter(fileContents);
         data.wordCount = content.split(/\s+/).length;
         data.locale = file.match(/\.([a-z]{2})\.mdx$/)?.[1] || locale;
+        data.lastmod = data.lastmod ?? data.date;
         return data as ArticleMetadata;
     });
     return articles;

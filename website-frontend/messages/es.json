@@ -1,6 +1,9 @@
 {
     "Home": {
-        "subtitle": "Informático y Músico"
+        "subtitle": "Informático y Músico",
+        "welcome_title": "¡Bienvenido a mi sitio web!",
+        "welcome_description": "Aquí puedes leer algo sobre mí, ver mis grabaciones o echar un vistazo a mis proyectos de software.",
+        "news_title": "Últimas novedades"
     },
     "Navigation": {
         "home": "Inicio",
