@@ -71,7 +71,7 @@ export default function RecordingGrid({ recordings }: {recordings: AggregateReco
                 </div>
             )}
             { viewMode === 'list' && (
-                <div className="p-2 space-y-6">
+                <div className="p-2 space-y-3">
                     {sortedRecordings.map((recording) => (
                         <YouTubeDialog key={recording.id} recording={recording} />
                     ))}
