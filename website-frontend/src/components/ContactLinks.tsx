@@ -4,7 +4,7 @@ import { Link } from '@/i18n/routing'
 import CopyMailButton from './CopyMailButton'
 export default function ContactLinks() {
     return (
-        <div className="flex items-center justify-around">
+        <div className="flex justify-around gap-2">
             <CopyMailButton encodedEmail="aW5mby5lbGlhQGRvdW1lcmMubWU="/>
             <Link href="https://github.com/elimatao" target="_blank">
                 <Button size="icon" variant="outline" className="hover:cursor-pointer">

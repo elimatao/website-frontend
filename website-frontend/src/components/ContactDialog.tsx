@@ -14,7 +14,7 @@ export default function ContactDialog() {
                     {t('contact')}
                 </Button>
             </PopoverTrigger>
-            <PopoverContent align="end" className="">
+            <PopoverContent align="end" className="w-auto p-2">
                 <ContactLinks />
             </PopoverContent>
         </Popover>
