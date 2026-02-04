@@ -48,5 +48,22 @@
     },
     "CsListPage": {
         "title": "Algunos de mis trabajos anteriores"
+    },
+    "LEDsGame": {
+        "nickname": "Apodo",
+        "round_count": "Número de rondas",
+        "game_mode": "Modo de juego",
+        "play": "Jugar",
+        "instructions": "Instrucciones",
+        "game_result": "Ingresar valor",
+        "check": "Comprobar",
+        "return": "Volver al menú",
+        "round_info": "Ronda {current} de {total}",
+        "results_title": "Resultados del juego",
+        "round": "Ronda",
+        "time_taken": "Tiempo empleado",
+        "result": "Resultado",
+        "success": "Correcto!",
+        "failue": "Falso!"
     }
 }

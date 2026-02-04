@@ -48,5 +48,22 @@
     },
     "CsListPage": {
         "title": "Some of my Previous Work"
+    },
+    "LEDsGame": {
+        "nickname": "Nickname",
+        "round_count": "Round Count",
+        "game_mode": "Game Mode",
+        "play": "Play",
+        "instructions": "Instructions",
+        "game_result": "Enter Value",
+        "check": "Check",
+        "return": "Return to Menu",
+        "round_info": "Round {current} of {total}",
+        "results_title": "Game Results",
+        "round": "Round",
+        "time_taken": "Time Taken",
+        "result": "Result",
+        "success": "Right guess!",
+        "failure": "Wrong guess!"
     }
 }

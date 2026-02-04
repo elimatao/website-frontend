@@ -1,189 +1,134 @@
 document.addEventListener('DOMContentLoaded', function(){
-	// Get the element with id="defaultOpen" and click on it
-	document.querySelector('#LEDConfig').onclick = LEDGame;
-	document.querySelector('#LEDSubmit').onsubmit = () => {clicked = true; return false;};
-	
-	document.querySelector('#back').onclick = returnToStart;
-	document.querySelector('#LEDMode').onchange = LEDModeControl;
+    const configBtn = document.querySelector('#LEDConfig');
+    const submitForm = document.querySelector('#LEDSubmit');
+    const backBtn = document.querySelector('#back');
+    const modeSelect = document.querySelector('#LEDMode');
+
+    if(configBtn) configBtn.onclick = LEDGame;
+    if(submitForm) submitForm.onsubmit = () => { clicked = true; return false; };
+    if(backBtn) backBtn.onclick = returnToStart;
+    if(modeSelect) modeSelect.onchange = LEDModeControl;
 });
 
 function endGame(){
-	document.getElementById('gameCont').style.display = "none";
-	//Zeige den zurück Knopf 
-	document.querySelector("#back").style.display = "block";
+    document.getElementById('gameCont').classList.add('hidden');
+    // Show back button with shadcn-like button styling
+    const back = document.querySelector("#back");
+    back.classList.remove('hidden');
+    back.className = "inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 mx-auto";
 }
+
 function startGame(){
-	document.getElementById("StartCont").style.display = "none";
-	document.getElementById("gameCont").style.display = "block";
-	document.getElementById("result").style.display = "block";
+    document.getElementById("StartCont").classList.add('hidden');
+    document.getElementById("gameCont").classList.remove('hidden');
+    document.getElementById("result").classList.remove('hidden');
 }
+
 function returnToStart(){
-	document.querySelector('#back').style.display = "none";
-	document.querySelector('#result').style.display = "none";
-	document.querySelector('#result').innerHTML = "";
-	document.querySelector('#StartCont').style.display = "block";
+    document.querySelector('#back').classList.add('hidden');
+    document.querySelector('#result').classList.add('hidden');
+    document.querySelector('#result').innerHTML = "";
+    document.querySelector('#StartCont').classList.remove('hidden');
 }
 
 function LEDModeControl(){
-	var mode = document.querySelector('#LEDMode').value;
-	var rounds = document.getElementById("rounds");
-	var LEDDiv = document.getElementById("LEDDiv");
-	
-	if (mode === "normal"){
-		rounds.min = 3; rounds.value = 3;
-		LEDDiv.innerHTML = `<img class="LED" src="/images/LEDOff.png"><img class="LED" src="/images/LEDOff.png">
-							<img class="LED" src="/images/LEDOff.png"><img class="LED" src="/images/LEDOff.png">
-							<img class="LED" src="/images/LEDOff.png"><img class="LED" src="/images/LEDOff.png">
-							<img class="LED" src="/images/LEDOff.png"><img class="LED" src="/images/LEDOff.png">`;
-		var leds = document.querySelectorAll('.LED');
-		for (let i = 0; i < leds.length; i++) leds[i].style.width = "11%";
-	}
-	else{
-		rounds.min = 5; rounds.value = 5;
-		LEDDiv.innerHTML = `<img class="LED" src="/images/LEDOff.png"><img class="LED" src="/images/LEDOff.png">
-							<img class="LED" src="/images/LEDOff.png"><img class="LED" src="/images/LEDOff.png">
-							<img class="LED" src="/images/LEDOff.png"><img class="LED" src="/images/LEDOff.png">
-							<img class="LED" src="/images/LEDOff.png"><img class="LED" src="/images/LEDOff.png">
-							<img class="LED" src="/images/LEDOff.png"><img class="LED" src="/images/LEDOff.png">`;
-		var leds = document.querySelectorAll('.LED');
-		for (let i = 0; i < leds.length; i++) leds[i].style.width = "9%";
-	}
-}
-async function LEDGame()
-{	
-	startGame();
-	var leds = document.querySelectorAll('.LED');
-	var mode = document.querySelector('#LEDMode').value;
-	
-	// Zeigt die LED-Blöcke richtig
-	for (let i = 0; i < leds.length; i++) leds[i].style.display = "inline-block";
-	
-	//FÜr jede Runde...
-	var rounds = document.querySelector('#rounds').value;
-	var totalResult = 0;
-	for (let i = 0; i < rounds; i++)
-	{
-		//Zeigt aktuelle Runde an.
-		document.querySelector('#currentRound').innerHTML = `Ronda ${i + 1} de ${rounds}.`;
-		
-		//säubert Felder und Eingabefelder
-		for (let i = 0; i < leds.length; i++){
-			leds[i].src = "/images/LEDOff.png";
-		}
-		document.querySelector('#guessedNumber').value = 0;
-		
-		if (mode === "normal"){
-			var number = Math.floor(Math.random() * 256); //Zufällige 8 bit-Zahl
-			bin(number, 8-1, leds); //8-1 ist die Zahl der LEDs. Macht auch alle nötigen LEDs an.
-		}			
-		else{
-			var number = Math.floor(Math.random() * 1024); //Zufällige 10 bit-Zahl
-			bin(number, 10-1, leds);
-		} 
-		
-		
-		//Zeit
-		var dBef = new Date();
-		var timeBefore = dBef.getTime(); //in milliseconds
-		
-		//Sobald es eine Eingabe gibt.
-		await waitEvent();
-		
-		//Guckt, ob Eingabe stimmt.
-		var roundResult;
-		var guessedNumber = document.querySelector('#guessedNumber').value;
-		if (number == guessedNumber){
-			var dAft = new Date();
-			var timeAfter = dAft.getTime();
-			roundResult = timeAfter - timeBefore;
-			document.querySelector('#result').innerHTML += `<p class="alert alert-success"><span class="mr-5">&#10004;</span> +${roundResult / 1000} s</p>`;
-		}
-		else {
-			if (mode === "normal") roundResult = 30000;
-			else roundResult = 40000;
-			document.querySelector('#result').innerHTML += `<p class="alert alert-danger"><span class="mr-5">&#10060;</span> +${roundResult / 1000} s</p>`;
-		}
-		
-		totalResult += roundResult;
-	}
-	totalResult = Math.round(totalResult / rounds);
-	
-	var lang = get_language();
-	if (lang == "es"){
-	  document.querySelector('#result').innerHTML += `<p class="alert alert-info">MEDIA: ${totalResult / 1000} s</p>`;  
-	} else if (lang == "en"){
-	  document.querySelector('#result').innerHTML += `<p class="alert alert-info">AVERAGE: ${totalResult / 1000} s</p>`; 
-	}else document.querySelector('#result').innerHTML += `<p class="alert alert-info">ERGEBNIS: ${totalResult / 1000} s</p>`; 
-	endGame(); //Versteckt Spiel
-	
-	var name = document.querySelector('#name').value;
-	//Speichere Resultat
-	// scoreSave(totalResult, name, "LEDs", mode);
-	return false;
+    const mode = document.querySelector('#LEDMode').value;
+    const rounds = document.getElementById("rounds");
+    const LEDDiv = document.getElementById("LEDDiv");
+    
+    // Using Tailwind arbitrary values for specific percentages
+    const imgClass = mode === "normal" ? "LED w-[11%] aspect-square object-contain" : "LED w-[9%] aspect-square object-contain";
+    const count = mode === "normal" ? 8 : 10;
+    
+    rounds.min = mode === "normal" ? 3 : 5;
+    rounds.value = rounds.min;
+
+    let html = "";
+    for(let i=0; i<count; i++) {
+        html += `<img class="${imgClass}" src="/images/LEDOff.png" alt="LED">`;
+    }
+    LEDDiv.innerHTML = html;
 }
 
-function bin(n, pos, leds)
-{
-	if (n < 1) return;
-	
-	if (n % 2 == 1) leds[pos].src = "/images/LEDOn.png";
-	n = Math.floor(n / 2);
-	bin(n, pos - 1, leds);
+async function LEDGame() {   
+    startGame();
+    const leds = document.querySelectorAll('.LED');
+    const mode = document.querySelector('#LEDMode').value;
+    const rounds = document.querySelector('#rounds').value;
+    let totalResult = 0;
+
+    for (let i = 0; i < rounds; i++) {
+        document.querySelector('#currentRound').innerHTML = `Ronda ${i + 1} de ${rounds}`;
+        
+        // Reset LEDs
+        leds.forEach(led => led.src = "/images/LEDOff.png");
+        document.querySelector('#guessedNumber').value = 0;
+        
+        const maxNum = mode === "normal" ? 256 : 1024;
+        const bitCount = mode === "normal" ? 8 : 10;
+        const number = Math.floor(Math.random() * maxNum);
+        
+        bin(number, bitCount - 1, leds);
+        
+        const timeBefore = new Date().getTime();
+        await waitEvent();
+        
+        let roundResult;
+        const guessedNumber = document.querySelector('#guessedNumber').value;
+        const resultDiv = document.querySelector('#result');
+
+        if (number == guessedNumber) {
+            roundResult = new Date().getTime() - timeBefore;
+            // Shadcn "Success" style
+            resultDiv.innerHTML += `
+                <div class="flex items-center p-3 mb-2 rounded-lg border border-emerald-500/50 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">
+                    <span class="mr-3">✔</span> +${roundResult / 1000}s
+                </div>`;
+        } else {
+            roundResult = mode === "normal" ? 30000 : 40000;
+            // Shadcn "Destructive" style
+            resultDiv.innerHTML += `
+                <div class="flex items-center p-3 mb-2 rounded-lg border border-destructive/50 bg-destructive/10 text-destructive font-medium">
+                    <span class="mr-3">✘</span> +${roundResult / 1000}s
+                </div>`;
+        }
+        totalResult += roundResult;
+    }
+
+    totalResult = Math.round(totalResult / rounds);
+    const lang = get_language();
+    const label = lang === "es" ? "MEDIA" : (lang === "de" ? "ERGEBNIS" : "AVERAGE");
+
+    // Result summary card style
+    document.querySelector('#result').innerHTML += `
+        <div class="mt-4 p-4 rounded-xl border bg-card text-card-foreground shadow-sm">
+            <p class="text-sm text-muted-foreground uppercase tracking-wider">${label}</p>
+            <p class="text-3xl font-bold">${totalResult / 1000}s</p>
+        </div>`;
+    
+    endGame();
+    return false;
+}
+
+function bin(n, pos, leds) {
+    if (n < 1 || pos < 0) return;
+    if (n % 2 == 1) leds[pos].src = "/images/LEDOn.png";
+    bin(Math.floor(n / 2), pos - 1, leds);
 }
 
 var clicked = false;
-var interval;
 async function waitEvent(){
-	clicked = false;
-	await new Promise(function(resolve, reject){
-		interval = setInterval(()=>{
-		if (clicked == true) {
-			clearInterval(interval);
-			resolve();
-		}
-		}, 200);
-	});
-}
-
-function scoreSave(score, player, game, mode="normal"){
-	const request = new XMLHttpRequest();
-	request.open('POST', `${ hostDomain }/scoreSubmit`);
-	const outData = new FormData();
-	outData.append('score', score);
-	outData.append('player', player);
-	outData.append('game', game);
-	outData.append('mode', mode);
-	request.send(outData);
-	
-	request.onload = () => {
-		const inData = JSON.parse(request.responseText);
-		var scoreTable = document.querySelector('#scoreTable');
-		//Zeige Titel
-		document.querySelector('#scoresTitle').style.display = "block";
-		//generiere Tabelle
-		scoreTable.innerHTML = "";
-		
-		// Nimm die aktuelle Sprache
-		var language = get_language();
-		
-		if (language === "es") scoreTable.innerHTML += `<tr><th>Posición</th><th>Nombre</th><th>Resultado</th></tr>`;
-		else if (language === "de") scoreTable.innerHTML += `<tr><th>Position</th><th>Name</th><th>Ergebnis</th></tr>`;
-		else scoreTable.innerHTML += `<tr><th>Position</th><th>Name</th><th>Result</th></tr>`;
-		
-		scoreTable.appendChild(document.createElement("tbody"));
-		for (let i = 0; i < inData.length; i++){
-			scoreTable.lastElementChild.innerHTML += 
-			`
-				<tr>
-					<td>${i + 1}</td>
-					<td>${inData[i].player}</td>
-					<td>${inData[i].score / 1000}</td>
-				</tr>
-			`;
-		}
-	}
+    clicked = false;
+    return new Promise(resolve => {
+        const interval = setInterval(() => {
+            if (clicked) {
+                clearInterval(interval);
+                resolve();
+            }
+        }, 100);
+    });
 }
 
 function get_language(){
-  return document.documentElement.attributes.lang.value;
+    return document.documentElement.lang || "en";
 }

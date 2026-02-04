@@ -40,8 +40,8 @@ export default async function RootLayout({
   const {locale} = await params;
   setRequestLocale(locale);
   const messages = await getMessages();
-  const { Navigation, Music } = messages as Messages;
-  const clientMessages = { Navigation, Music };
+  const { Navigation, Music, LEDsGame } = messages as Messages;
+  const clientMessages = { Navigation, Music, LEDsGame };
 
   return (
     <html lang={locale} suppressHydrationWarning>
