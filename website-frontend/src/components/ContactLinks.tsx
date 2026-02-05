@@ -6,16 +6,16 @@ export default function ContactLinks() {
     return (
         <div className="flex justify-around gap-2">
             <CopyMailButton encodedEmail="aW5mby5lbGlhQGRvdW1lcmMubWU="/>
-            <Link href="https://github.com/elimatao" target="_blank">
-                <Button size="icon" variant="outline" className="hover:cursor-pointer">
+            <Button asChild size="icon" variant="outline" className="hover:cursor-pointer">
+                <Link href="https://github.com/elimatao" target="_blank">
                     <Github />
-                </Button>
-            </Link>
-            <Link href="https://www.youtube.com/@EliaDoumerc" target="_blank" aria-label="YouTube">
-                <Button size="icon" variant="outline" className="hover:cursor-pointer">
+                </Link>
+            </Button>
+            <Button asChild size="icon" variant="outline" className="hover:cursor-pointer">
+                <Link href="https://www.youtube.com/@EliaDoumerc" target="_blank" aria-label="YouTube">
                     <Youtube />
-                </Button>
-            </Link>
+                </Link>
+            </Button>
         </div>
     )
 }
