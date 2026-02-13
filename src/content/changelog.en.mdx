@@ -1,15 +1,34 @@
 ---
-title: Changelog
+title: Website Changelog
 slug: changelog
 date: 2022-06-20
-lastmod: 2023-10-03
+lastmod: 2026-02-05
 description:
-featured_image: /images/code_v2.png
+moddescription: "Redesign and Reimplementation with React and Next JS. New Recordings Page"
+featured_image: /code_v2.png
 show_featured_image: True
 draft: False
 has_formulas: False
 ---
-### v2.1
+## v3.0: React and Next JS
+**2026-02-05**
+#### Motivation
+The main motivation for this update is to get more comfortable with the most popular frontend framework, React, and its server-side rendering companion, Next JS.
+
+React also offers a number of advantages over Hugo:
+- Easy creation of interactive user interfaces thanks to great state management
+- Better code structure and reusability thanks to the component-based architecture
+- Better performance for interactive content
+- Great Ecosystem of libraries and tools
+
+#### Changes
+This update turned into a major overhaul of the website, with the entire code being rewritten in React.
+
+For styling, instead of Bootstrap I now use Tailwind CSS and Shadcn UI, which are more modern and customizable.
+
+The website was redesigned, and more features can be found especially in the recording page.
+
+### v2.1: Static files and removal of the backend
 **2023-10-03**
 #### Motivation
 Heroku (my backend hosting provider) decided to remove the free plan. So, in order to save costs I had to get rid of the backend which, being a programming exercise, was mostly unnecessary anyway.
@@ -18,7 +37,7 @@ So what I did is to turn the recordings into static files, which makes them less
 
 Furthermore I had to remove the highscore table in the LEDs game as it also requires the backend. The game is still playable. It has been moved to the Informatics section as I don't think I will be adding enough games in the future to justify a dedicated games section. Besides, this website is rather supposed to be about me and what I do than a games portal.
 
-## v2.0
+## v2.0: Hugo SSG
 **2022-06-28**
 #### Problems so far
 Altough the site seemed rather complete, there were a few under-the-hood issues that affected the performance (loading time) and the development flow:
@@ -33,7 +52,7 @@ Most of these issues were adressed by merging the frontend code into a single [H
 
 The dynamic content is requested via JavaScript and served by the flask app which has been radically reduced to a simple <abbr title="Application Programming Interface">API</abbr>. The delay due to the on-demand launch of the server is still present, but only noticeable in the music section, where it takes a bit longer to load the available composers.
 
-## v1.0
+## v1.0: Initial version
 The initial version of this web site consisted of:
 - An application written in [python 3](https://www.python.org/) with the libraries [Flask, Jinja y Werkzeug](https://palletsprojects.com/)
 - A database with tables for users, videos and the results of the games

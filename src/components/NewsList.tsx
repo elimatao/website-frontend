@@ -23,7 +23,7 @@ export default function NewsList({ route, locale }: { route: string; locale: str
     const news_list: NewsItem[] = content_list.slice(0, 4);
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {news_list.map((item) => (
                 'recdate' in item ? (
                     <RecordingCard key={item.id} recording={item} />

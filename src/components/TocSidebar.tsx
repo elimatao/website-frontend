@@ -15,7 +15,7 @@ export default function TocSidebar({ tocTitle, headings }: { tocTitle: string, h
                 <h2 className="text-sm font-semibold uppercase tracking-wider mb-4">{tocTitle}</h2>
                 <ul className="">
                     {headings.map((heading) => (
-                        <li key={heading.id} className={`${indentations[heading.level]} hover:text-brand transition-colors`}>
+                        <li key={heading.id} className={`${indentations[heading.level]} hover:text-brand transition-colors mb-2 leading-snug`}>
                             <Link href={`#${heading.id}`} className='text-sm'>{heading.text}</Link>
                         </li>
                     ))}
