@@ -14,7 +14,7 @@ export type MusicViewMode = 'grid' | 'list';
 
 export default function RecordingGrid({ recordings }: {recordings: AggregateRecording[]}) {
     const t = useTranslations('Music');
-    const [viewMode, setViewMode] = useState<'grid' | 'list'>('list');
+    const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
     const [sortMode, setSortMode] = useState<'date_desc' | 'date_asc' | 'title_asc' | 'title_desc' | 'composer_asc' | 'composer_desc'>('date_desc');
 
     const sortedRecordings = useMemo(() => {
