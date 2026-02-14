@@ -61,6 +61,7 @@ export function getArticleMetadataList(locale: string, route: string): ArticleMe
         return false;
     });
     const filesToProcess = [...localeSpecificFiles, ...otherFilesInOtherLanguages];
+    console.log("Files to process for route", route, "and locale", locale, ":", filesToProcess);
 
     const articles = filesToProcess.map(file => {
         const fullPath = path.join(dirPath, file);
@@ -69,6 +70,9 @@ export function getArticleMetadataList(locale: string, route: string): ArticleMe
         data.wordCount = content.split(/\s+/).length;
         data.locale = file.match(/\.([a-z]{2})\.mdx$/)?.[1] || locale;
         data.lastmod = data.lastmod ?? data.date;
+        data.slug = file.replace(/\.([a-z]{2})\.mdx$/, '')
+                        .replace('.mdx', '')
+                        .replace(/(^|\/)\([^)]+\)/g, ''); // slug is now the whole thing starting after route
         return data as ArticleMetadata;
     }).filter(article => !article.draft);
     return articles;
@@ -79,4 +83,17 @@ export function getAllPostSlugs(locale: string, route: string): string[] {
     const files = fs.readdirSync(dirPath);
     return files.filter(file => file.endsWith(`.${locale}.mdx`))
                 .map(file => file.replace(`.${locale}.mdx`, ''));
+}
+
+export function getOtherAvailableLocalesForSlug(route: string, slug: string, currentLocale: string): string[] {
+    const dirPath = path.join(process.cwd(), `src/content/${route}`);
+    const files = fs.readdirSync(dirPath);
+    const regex = new RegExp(`^${slug}\\.([a-z]{2})\\.mdx$`);
+    return files.map(file => {
+        const match = file.match(regex);
+        if (match) {
+            return match[1]; // Return the locale code
+        }
+        return null;
+    }).filter(locale => locale !== currentLocale && locale !== null) as string[];
 }

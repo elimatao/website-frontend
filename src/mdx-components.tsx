@@ -3,11 +3,13 @@ import MutedParagraph from "./components/MutedText";
 import { Link } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 
-function MDXLink(props: any) {
-    const currentLocale = useLocale();
-    console.log("props", props);
-    const locale = props.locale ?? currentLocale;
-    return <Link locale={locale} className="text-brand underline" {...props} />;
+function CustomLink({href, locale, ...rest}: any) {
+    const isExternal = href.startsWith('http');
+    if (isExternal) {
+        return <a href={href} target="_blank" rel="noopener noreferrer" className="text-brand underline" {...rest} />;
+    }
+
+    return <Link href={href} locale={locale} className="text-brand underline" {...rest} />;
 }
 
 export const mdxComponents = {
@@ -17,7 +19,8 @@ export const mdxComponents = {
     h4: (props:any) => <h4 className="text-xl font-bold my-2" {...props} />,
     p: (props:any) => <p className="my-2 leading-7" {...props} />,
     ul: (props: any) => <ul className="list-disc ml-6" {...props} />,
-    a: MDXLink,
+    a: CustomLink,
     MutedParagraph,
     AdaptiveImage,
+    Link: CustomLink,
 };

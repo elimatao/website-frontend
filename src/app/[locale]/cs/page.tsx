@@ -1,7 +1,4 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { getArticleMetadataList } from "@/lib/content";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Link } from "@/i18n/routing";
 import ArticleListTemplate from "@/components/ArticleListTemplate";
 
 export default async function CSOverviewPage({params}: {params: Promise<{locale: string}>}) {

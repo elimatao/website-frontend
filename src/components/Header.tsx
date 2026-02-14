@@ -10,7 +10,6 @@ import { Link } from "@/i18n/routing";
 import ContactDialog from './ContactDialog';
 import ContactLinks from './ContactLinks';
 
-
 export default function Header() {
   const t = useTranslations('Navigation');
 
