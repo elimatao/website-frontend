@@ -2,6 +2,12 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { compileMDX } from 'next-mdx-remote/rsc';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import rehypeSlug from 'rehype-slug';
+import { mdxComponents } from '@/mdx-components';
+import { extractHeadings, TocItem } from './toc';
 
 export interface ArticleMetadata {
   title: string;
@@ -16,7 +22,7 @@ export interface ArticleMetadata {
   featured_image?: string;
 }
 
-export function getArticle(route: string, slug: string, locale: string): { metadata: ArticleMetadata; content: string } | undefined {
+export async function getArticle(route: string, slug: string, locale: string): Promise<{ metadata: ArticleMetadata; content: React.ReactNode; headings: TocItem[] } | undefined> {
     const fullPath = path.join(process.cwd(), `src/content/${route}/${slug}.${locale}.mdx`);
 
     if (!fs.existsSync(fullPath)) {
@@ -25,10 +31,24 @@ export function getArticle(route: string, slug: string, locale: string): { metad
     const fileContents = fs.readFileSync(fullPath, 'utf8');
 
     // This separates 'data' (frontmatter) from 'content' (the body)
-    const { data, content } = matter(fileContents);
-    data.wordCount = content.split(/\s+/).length;
+    const { content, frontmatter } = await compileMDX<ArticleMetadata>({
+        source: fileContents,
+        options: {
+            parseFrontmatter: true,
+            mdxOptions: {
+                remarkPlugins: [remarkMath],
+                rehypePlugins: [rehypeSlug, rehypeKatex],
+                format: 'mdx',
+            }
+        },
+        components: mdxComponents,  
+    });
 
-    return { metadata: data as ArticleMetadata, content };
+    frontmatter.wordCount = fileContents.split(/\s+/).length; // update regex to skip frontmatter
+
+    const headings = extractHeadings(fileContents);
+
+    return { metadata: frontmatter, content: content, headings: headings };
 }
 
 export function getArticleMetadataList(locale: string, route: string): ArticleMetadata[] {

@@ -1,7 +1,6 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import Script from 'next/script';
 import { useState } from 'react';
 import StartScreen from './StartScreen';
 import RoundScreen from './RoundScreen';
@@ -9,7 +8,7 @@ import ResultScreen from './ResultScreen';
 
 interface LedGameProps {
   featuredImage?: string;
-  instructions: string; // Pass the HTML/content for instructions here
+  instructions: React.ReactNode; // Pass the HTML/content for instructions here
 }
 
 export type GameMode = 'normal' | 'hardcore';
@@ -41,7 +40,7 @@ export default function LedGame({ featuredImage, instructions }: LedGameProps) {
   return (
     <>
     { gameState === 'start' ? (
-      <StartScreen instructions={instructions} mode={mode} setMode={setMode} rounds={rounds} setRounds={setRounds} setGameState={setGameState} />
+      <StartScreen instructions={instructions} mode={mode} setMode={setMode} rounds={rounds} setRounds={setRounds} setGameState={setGameState}/>
     ) : gameState === 'playing' ? (
       <RoundScreen mode={mode} currentRound={currentRound} rounds={rounds} onRoundEnd={finishRound} />
     ) : (

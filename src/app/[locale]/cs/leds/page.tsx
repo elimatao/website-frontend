@@ -1,14 +1,16 @@
 import { getArticle } from "@/lib/content";
 import LedGame from "./LedGame";
 import { notFound } from "next/navigation";
+import 'katex/dist/katex.min.css';
+
 
 export default async function LedGamePage({params}: {params: Promise<{locale: string}>}) {
     const { locale } = await params;
-    const article = getArticle("cs/(leds)", "leds", locale);
-        if (!article) {
-            notFound();
-        }
-        const { metadata, content } = article;
+    const article = await getArticle("cs/(leds)", "leds", locale);
+    if (!article) {
+        notFound();
+    }
+    const { metadata, content } = article;
 
     return (
             <div className="container mx-auto max-w-3xl border rounded-lg overflow-clip m-6">

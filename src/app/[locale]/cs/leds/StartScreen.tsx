@@ -1,10 +1,14 @@
 import { useTranslations } from 'next-intl';
-import { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { Button } from '@/components/ui/button';
 import { GameMode, GameState } from './LedGame';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import { mdxComponents } from '@/mdx-components';
 
 interface StartScreenProps {
-  instructions: string;
+  instructions: React.ReactNode;
   mode: GameMode;
   setMode: Dispatch<SetStateAction<GameMode>>;
   rounds: number;
@@ -60,7 +64,8 @@ export default function StartScreen({ instructions, mode, setMode, rounds, setRo
         {/* Instructions */}
         <div className="text-left prose dark:prose-invert max-w-none">
           <h5 className="text-xl font-bold mb-2">{t('instructions')}</h5>
-          <div className="text-muted-foreground" dangerouslySetInnerHTML={{ __html: instructions }}>
+          <div className="text-muted-foreground">
+            {instructions}
           </div>
         </div>
       </div>
