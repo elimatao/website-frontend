@@ -34,10 +34,10 @@ export default function Header() {
             </div>
 
             {/* MIDDLE: Desktop Navigation (Hidden on Mobile) */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-8 h-full">
             {navLinks.map((link) => (
                 <Link key={link.name} href={link.href}     
-                className="text-sm font-medium hover:text-brand transition-colors"
+                className="text-sm font-medium hover:text-brand transition-colors flex items-center h-full"
                 >
                 {link.name}
                 </Link>
