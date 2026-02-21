@@ -4,6 +4,7 @@ import { ArticleMetadata } from "@/lib/content";
 import ArticleCard from "./ArticleCard";
 import RecordingCard from "./music/RecordingCard";
 import { getArticleMetadataList } from "@/lib/content";
+import YouTubeDialog from "./music/YouTubeDialog";
 
 type NewsItem = AggregateRecording | ArticleMetadata;
 
@@ -26,7 +27,9 @@ export default function NewsList({ route, locale }: { route: string; locale: str
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {news_list.map((item) => (
                 'recdate' in item ? (
-                    <RecordingCard key={item.id} recording={item} />
+                    <YouTubeDialog key={item.id} recording={item}>
+                        <RecordingCard recording={item} />
+                    </YouTubeDialog>
                 ) : (
                     <ArticleCard key={item.slug} articleData={item} route={route}/>
                 )

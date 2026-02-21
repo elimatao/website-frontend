@@ -1,6 +1,4 @@
-import { Card, CardContent, CardHeader, CardFooter, CardTitle } from "@/components/ui/card";
 import { useTranslations } from "next-intl";
-import { YouTubeEmbed } from '@next/third-parties/google'
 import { useState, useMemo } from "react";
 import { MusicSortSwitcher } from "./MusicSortSwitcher";
 import { AggregateRecording } from "@/lib/music-types";
@@ -57,14 +55,23 @@ export default function RecordingGrid({ recordings }: {recordings: AggregateReco
             { viewMode === 'grid' && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {sortedRecordings.map((recording) => (
-                        <RecordingCard key={recording.id} recording={recording} />
+                        <YouTubeDialog key={recording.id} recording={recording}>
+                            <RecordingCard recording={recording} />
+                        </YouTubeDialog>
                     ))}
                 </div>
             )}
             { viewMode === 'list' && (
                 <div className="p-2 space-y-3">
                     {sortedRecordings.map((recording) => (
-                        <YouTubeDialog key={recording.id} recording={recording} />
+                        <YouTubeDialog key={recording.id} recording={recording}>
+                            <div className="flex justify-between items-center hover:bg-accent hover:cursor-pointer p-2 rounded-md">
+                                <span className="text-lg font-medium">{recording.composer_name} {recording.composer_surname}: {recording.piece_title}</span>
+                                <span className="ml-4 text-right text-sm text-muted-foreground">
+                                    {t('recording_date', { date: recording.recdate })}
+                                </span>
+                            </div>
+                        </YouTubeDialog>
                     ))}
                 </div>
             )}
