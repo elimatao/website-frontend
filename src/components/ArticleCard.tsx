@@ -1,11 +1,15 @@
 import { ArticleMetadata } from "@/lib/content";
 import { Card, CardHeader, CardContent, CardFooter } from "./ui/card";
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { getFormatter, getTranslations } from "next-intl/server";
 
-
-export default function ArticleCard({ articleData, route }: { articleData: ArticleMetadata, route: string }) {
-    const t = useTranslations('Home');
+export default async function ArticleCard({ articleData, route }: { articleData: ArticleMetadata, route: string }) {
+    const t = await getTranslations('Home');
+    const format = await getFormatter();
+    const articleDate = new Date(articleData.lastmod);
+    const dateString = !isNaN(articleDate.getTime()) 
+        ? format.dateTime(articleDate, { dateStyle: 'medium' }) 
+        : articleData.lastmod;
     console.log("route:", route);
     console.log("article name", articleData.title, "locale:", articleData.locale);
     return (
@@ -31,7 +35,7 @@ export default function ArticleCard({ articleData, route }: { articleData: Artic
                     )}
                 </CardContent>
                 <CardFooter>
-                    {articleData.lastmod.toDateString()}
+                    {dateString.toString()}
                 </CardFooter>
             </Card>
         </Link>

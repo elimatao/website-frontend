@@ -1,6 +1,4 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { getArticleMetadataList } from "@/lib/content";
-import { Link } from "@/i18n/routing";
 import ArticleCard from "./ArticleCard";
 
 
