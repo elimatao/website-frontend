@@ -6,7 +6,7 @@
 [x] music section
 [x] footer and related content
 [x] contact page
-[] better adaptiveimage component
+[x] better adaptiveimage component
 [x] better markdown rendering
 [x] mathe-renderer
 [x] LEDs Spiel?

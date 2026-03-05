@@ -8,6 +8,8 @@ import rehypeKatex from 'rehype-katex';
 import rehypeSlug from 'rehype-slug';
 import { mdxComponents } from '@/mdx-components';
 import { extractHeadings, TocItem } from './toc';
+import {rehypeImageMetadata} from '@/plugins/rehype-image-metadata.mjs';
+import { remarkUnwrapImages } from '@/plugins/remark-unwrap-images.mjs';    
 
 export interface ArticleMetadata {
   title: string;
@@ -36,8 +38,8 @@ export async function getArticle(route: string, slug: string, locale: string): P
         options: {
             parseFrontmatter: true,
             mdxOptions: {
-                remarkPlugins: [remarkMath],
-                rehypePlugins: [rehypeSlug, rehypeKatex],
+                remarkPlugins: [remarkMath, remarkUnwrapImages],
+                rehypePlugins: [rehypeSlug, rehypeKatex, rehypeImageMetadata],
                 format: 'mdx',
             }
         },

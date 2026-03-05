@@ -1,4 +1,4 @@
-import AdaptiveImage from "./components/AdaptiveImage";
+import { MDXImage } from "./components/AdaptiveImage";
 import MutedParagraph from "./components/MutedText";
 import { Link } from "@/i18n/routing";
 import { useLocale } from "next-intl";
@@ -21,6 +21,6 @@ export const mdxComponents = {
     ul: (props: any) => <ul className="list-disc ml-6" {...props} />,
     a: CustomLink,
     MutedParagraph,
-    AdaptiveImage,
     Link: CustomLink,
+    img: (props: any) => <MDXImage {...props} />,
 };

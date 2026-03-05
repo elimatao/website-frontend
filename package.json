@@ -25,6 +25,7 @@
     "clsx": "^2.1.1",
     "country-flag-icons": "^1.6.4",
     "gray-matter": "^4.0.3",
+    "image-size": "^2.0.2",
     "js-yaml": "^4.1.1",
     "lodash.pick": "^3.1.0",
     "lucide-react": "^0.486.0",

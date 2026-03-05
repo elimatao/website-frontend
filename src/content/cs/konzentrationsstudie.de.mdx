@@ -15,7 +15,8 @@ Als Grundlage dienten ähnliche, ältere Studien, die die Konzentrationsleistung
 ## Umsetzung
 ### Entwicklung
 Bei dem Konzentrationstest hat es sich um einen D2-Test gehandelt, einem Test worin man unter Zeitdruck aus einer Zeichenkette alle mit zwei Strichen markierten "d" markieren muss. Um die Skalierbarkeit der Studie zu gewährleisten, und da die vorhandene Umfragensoftware nicht in der Lage ist, solche Felder zu erstellen, musste ein [eigenes Portal](https://konzentrationsstudie.netlify.app/) entwickelt werden.
-<AdaptiveImage src="/konzentrationstest.png" alt="Eingabefeld des Konzentrationstests" />
+
+![Eingabefeld des Konzentrationstests](/konzentrationstest.png)
 
 Ich entschied mich beim Frontend für React, da ich es mag, wie man damit die Wiederverwendbarkeit von Code maximiert und die Technologie schon seit längerer Zeit üben wollte. Für das Backend fügte ich einfach der Flask-App, welche ich für meine eigene Webseite verwende noch ein Paar Routen hinzu und erstellte zwei weitere Tabellen für die Daten der Tester und die Testergebnisse. Bei der Entwicklung kam es immer wieder zu Problemen, die vor allem mit meiner Unerfahrung mit React JS zusammenhingen, aber auch mit Unterschieden in den Browsern, die zur teils fehlerhaften Darstellung des Portals führten.
 
@@ -32,7 +33,7 @@ Insgesamt sind in den Daten hohe Schwankungen zu erkennen, was an der relativ ge
 
 Aus den Daten lässt sich trotzdem schließen, dass es einen statistischen Zusammenhang gibt zwischen dem hören von Musik und einem kurzzeitigen Schub der Konzentrationsleistung. Abgesehen davon konntenn wir nicht erkennen, dass die Art der Musik, oder ob die Musik der Person gefällt einen Unterschied für die Konzentrationsleistung ausmacht. Hier ist noch eine graphische Darstellung der Ergebnisse:
 
-<AdaptiveImage src="/studienergebnisse.png" alt="Eingabefeld des Konzentrationstests" />
+![Graphische Darstellung der Ergebnisse](/studienergebnisse.png)
 
 
 Diese Ergebnisse wurden in der Landesrunde von Jugend Forscht in Bilbao vorgestellt, wir erhielten dafür dort einen 3. Preis.
