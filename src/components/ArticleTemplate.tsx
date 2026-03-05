@@ -6,6 +6,7 @@ import TocSidebar from './TocSidebar';
 import MutedParagraph from './MutedText';
 
 export default async function ArticleTemplate({ route, slug, locale }: { route: string; slug: string; locale: string }) {
+    setRequestLocale(locale);
     const t = await getTranslations('Article');
 
     const article = await getArticle(route, slug, locale);
@@ -15,8 +16,9 @@ export default async function ArticleTemplate({ route, slug, locale }: { route: 
     const { metadata, content, headings } = article;
   
     const format = await getFormatter();
-    const dateString = metadata.lastmod instanceof Date
-        ? format.dateTime(metadata.lastmod, { dateStyle: 'long' }) 
+    const parsedDate = new Date(metadata.lastmod);
+    const dateString = !isNaN(parsedDate.getTime()) 
+        ? format.dateTime(parsedDate, { dateStyle: 'long' }) 
         : metadata.lastmod;
 
     return (
